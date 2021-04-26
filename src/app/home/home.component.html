@@ -1,0 +1,52 @@
+<html>
+<div [style.display]="dis" >
+<p [style.color]="col">home works!</p>
+</div>
+// interpolation
+<br>
+<p *ngIf="verif==true">{{name}}</p>
+<p>---------------------------</p>
+<br>
+// property binding
+<p>--------------------------</p>
+<br>
+<img [src]="link">
+<p>---------------------------</p>
+<br>
+// event binding
+<input type="text" (change)="get($event)" name="event">
+<p>----------------------------</p>
+<br>
+// two-way binding
+<input type="text" name="firstname" [(ngModel)]="firstName" >
+<button (click)="getTowayBinding()">submit</button>
+<p>----------------------------</p>
+<br>
+// binding hachtag
+
+<input type="text" name="firstname" #firsts >
+<button (click)="gethachtagBinding(firsts)">submit</button>
+<p>------------------ Directives--------------</p>
+<br>
+<div *ngFor="let p of tab2;index as i">
+  <p>{{i+1}} {{p}}</p>
+
+</div>
+
+
+<table>
+  <td *ngFor="let i of tab1">
+    <tr >  {{i.title}}</tr>
+    <tr>  {{i.speaker}}</tr>
+    <tr> {{i.description}}</tr>
+  </td>
+</table>
+</html>
+
+<div [ngSwitch]="n">
+  <p *ngSwitchCase="1"> First </p>
+  <p *ngSwitchCase="2"> Second </p>
+  <p *ngSwitchCase="3"> Third </p>
+
+
+</div>

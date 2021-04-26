@@ -1,0 +1,20 @@
+<form #f="ngForm" (ngSubmit)="get(f)">
+  <input type="text" name="firsName" #firstName="ngModel" ngModel class="form-control" placeholder="First Name" required>
+  <p *ngIf="firstName.errors?.required && firstName.touched" class="alert-danger">FirstName Required !</p>
+  <br>
+  <input type="text" name="lastName" #lastName="ngModel" ngModel class="form-control" placeholder="Last Name" required>
+  <p *ngIf="lastName.errors?.required && lastName.touched" class="alert-danger">LastName Required! </p>
+  <br>
+  <input type="email" name="email" class="form-control" placeholder="email" required email #email="ngModel" ngModel>
+  <p class="alert-danger" *ngIf=" email.touched && email.errors?.required" > Email Is Required !</p>
+  <p class="alert-danger" *ngIf="email.touched && email.errors?.email"> You should write a correct email</p>
+  <br>
+  <input #password="ngModel" ngModel type="password" name="password" class="form-control" placeholder="password" required minlength="8">
+  <p class="alert-danger" *ngIf="password.errors?.required && password.touched"> you should add password</p>
+  <p class="alert-danger" *ngIf="password.errors?.minlength && password.touched">you should add password more 8 caractere</p>
+  <br>
+  <input #confirmpassword="ngModel" ngModel type="password" name="confirmpassword" class="form-control" placeholder="confirm password" required >
+  <p class="alert-danger" *ngIf="confirmpassword.errors?.required && confirmpassword.touched"> you should add confirm password</p>
+  <p class="alert-danger" *ngIf=" confirmpassword.touched && confirmpassword.value!==password.value">is not the same password !</p>
+  <button type="submit" class="btn btn-primary" [disabled]="f.invalid"> Get </button>
+</form>
